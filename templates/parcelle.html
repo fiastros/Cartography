@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>projet cartographie
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Edible Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link href={{url_for("static",filename="css/bootstrap.css") }} rel='stylesheet' type='text/css' />   
+<!-- //bootstrap-css -->
+<!-- css -->
+<link href={{url_for("static",filename="css/style.css") }}  rel='stylesheet' type='text/css' />
+<!-- //css -->
+<!-- fonts -->
+
+<!-- //fonts -->
+<!-- js -->
+<script src={{url_for("static",filename="js/jquery-1.11.1.min.js")}}></script>   
+<script src={{url_for("static",filename="js/modernizr.custom.js")}}></script>
+<script src={{url_for("static",filename="js/bootstrap.js")}}></script>
+<!-- //js -->	
+<!-- start-smoth-scrolling-->
+<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+		
+		$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+		});
+</script>
+<!--//end-smoth-scrolling-->
+</head>
+<body>
+	<!--baner-->
+	<div class="banner">
+		<!-- container -->
+		<div class="container">
+			<div class="banner-top">
+				<div class="social">
+					<ul>
+						<li><a href="http://www.twitter.com" class="facebook"> </a></li>    
+						<li><a href="http://www.facebook.com" class="facebook twitter"> </a></li>
+						<li><a href="http://www.gmail.com"class="facebook chrome"> </a></li> 
+					</ul>
+				</div>
+				<div class="header-top-right">
+					<form method="POST">
+						<font color=white> {{usera}} </font>
+						<button type="submit" name="submit_button" value="logg_out" >Log out</button>
+					</form>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<!-- //container -->
+	</div>
+	<!--//baner-->
+	<div class="top-nav">
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="logo">
+						<h1><a href="{{ url_for('indexe') }}">Sommaire</a></h1>    
+					</div>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-center">
+						<li><a href="{{ url_for('indexe') }}" >Home</a></li>
+						<li><a href="{{ url_for('about') }}" >About</a></li>				
+						<li><a href="{{ url_for('indexe') }}">Avantages</a></li>	  						
+						<li><a href="{{ url_for('listing', user ='{{usera}}' ) }}" class="active">parcelles</a></li>	
+						<li><a href="{{ url_for('contact') }}">Contact</a></li>
+					</ul>	
+					<div class="clearfix"> </div>
+				</div>
+			</div>	
+		</nav>		
+	</div>	
+	<!-- script-for sticky-nav -->
+			<script>
+			$(document).ready(function() {
+				 var navoffeset=$(".top-nav").offset().top;
+				 $(window).scroll(function(){
+					var scrollpos=$(window).scrollTop(); 
+					if(scrollpos >=navoffeset){
+						$(".top-nav").addClass("fixed");
+					}else{
+						$(".top-nav").removeClass("fixed");
+					}
+				 });
+				 
+			});
+			</script>
+			<!-- /script-for sticky-nav -->
+	<!--navigation-->
+	<!-- contact -->
+	<div class="contact">
+		<div class="container">
+			<div class="contact-info">
+				<h2>listing de vos parcelles enregistrees</h2>
+			</div>
+			<center>
+				<form method="POST" action="">
+					<table bgcolor="red" class="liste_parc">
+						<caption>Récapitulatif de vos parcelles enregistrees </caption>
+						<thead>
+							<tr>
+								<td>Code Parcelle</td>
+								<td>Libellé Parcelle</td>
+								<td>Surface (ha)</td>
+								<td>Bouton Acces</td>
+								<td>Suppression</td>
+							</tr>
+						</thead>
+						{% for inf in info %}
+						<tr>
+							<td>{{inf[0]}}</td>
+							<td>{{inf[1]}}</td>
+							<td>{{inf[2]}}</td>
+							<td><button type="submit" name="submit_button" value={{inf[0]}}> Consulter </button></td>
+							<td><button type="submit" name="submit_button" value={{"delete"+inf[0]}}> Supprimer </button></td>
+						</tr>
+						{% endfor %}
+					</table>
+				</form>
+			</center>
+			
+			<div class="contact-infom">
+			
+				<h4>Ajout par code ilot anonyme</h4>
+				<p>ajouter vos codes d'ilot ici pour les enregistrees. Les code d'ilots sont optenable allant sur le site de decaration de votre PAC
+				</p>
+			</div>
+			<center>
+				<form method="POST" action="" id="f_add">
+					<p><font color="red">{{error}}</font></p>
+					<div id="ajout">
+						<label for="id_poly">Id recherche :</label>
+						<input type="text" id="id_poly" name="id_poly"><br>
+						<label for="parc">nom de la parcelle :</label>
+						<input type="text" id="parc" name="parc_name"><br>
+						<button type="submit" name="submit_button" value="ajout"> Ajouter </button>
+					</div>
+				</form>
+			</center>
+			<br>
+			<div clas="contact-inform">
+				<h4> Ajout par saisie de coordonees</h4>
+			</div>
+			<center>
+				<form method="POST" action="" id="f_add_coord">
+					<p>Saisir les coordonnees :</p>
+					<p><font color="red">{{error}}</font></p>
+					<div id="ajout_coord">
+					<table>
+						<tr>
+							<td></td>
+							<td>Latitude</td>
+							<td>Longitude</td>
+						</tr>
+						<tr>
+							<td>Coin superieur gauche</td>
+							<td><input type="number" step="any" id="lat_s_g" name="lat_s_g"></td>
+							<td><input type="number" step="any" id="lon_s_g" name="lon_s_g"></td>
+						</tr>
+						<tr>
+							<td>Coin superieur droit</td>
+							<td><input type="number" step="any" id="lat_s_d" name="lat_s_d"></td>
+							<td><input type="number" step="any" id="lon_s_d" name="lon_s_d"></td>
+						</tr>
+						<tr>
+							<td>Coin inferieur droit</td>
+							<td><input type="number" step="any" id="lat_i_d" name="lat_i_d"></td>
+							<td><input type="number" step="any" id="lon_i_d" name="lon_i_d"></td>
+						</tr>
+						<tr>
+							<td>Coin inferieur gauche</td>
+							<td><input type="number" step="any" id="lat_i_g" name="lat_i_g"></td>
+							<td><input type="number" step="any" id="lon_i_g" name="lon_i_g"></td>
+						</tr>
+					</table>
+
+						<label for="parc_coord">nom de la parcelle :</label>
+						<input type="text" id="parc_coord" name="parc_name_coord"><br>
+
+						<button type="submit" name="submit_button" value="ajout_coord"> Ajouter </button>
+					</div>
+				</form>
+			</center>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+	<!-- //contact -->
+	<!-- footer -->
+	<div class="footer">
+		<!-- container -->
+		<div class="container">
+			<div class="footer-grids">
+				<div class="col-md-4 footer-grid">
+					<div class="footer-grid-info">
+						<h3>Addresse</h3>
+					</div>
+					<div class="footer-grid-list">
+						<h4>Quartier general</h4>
+						<p>3 rue du tronquet
+							Mont saint aignan, 76130
+							<span>Normandie, France</span>
+						</p>
+						<h4>Contact</h4>
+						<p>
+							Telephone  Loic: 07 67 07 04 51
+							<br>
+							Telephone  Marc: 06 75 73 65 96
+							<span>FAX : on en a pas encore</span>
+							E-mail Loic : loic.eyango@etu.unilasalle.fr
+							<br>
+							E-mail Marc: marc.langlois@etu.unilasalle.fr
+						</p>
+					</div>
+				</div>
+				<div class="col-md-4 footer-grid">
+					<div class="footer-grid-info">
+						<h3>Actualites</h3>
+					</div>
+					<div class="footer-grid-list">
+						<form>
+							<input type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+							<input type="submit" value="Subscribe">
+						</form>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<!-- container -->
+	</div>
+	<!-- //footer -->
+	<!-- copyright -->
+	<div class="copyright">
+		<!-- container -->
+		<div class="container">
+			<p>© 2020 Edition. tout droit reserve | Design by M & L Corporation </a></p>
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- //copyright -->
+</body>
+</html>

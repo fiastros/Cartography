@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>projet cartographie
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Edible Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link href={{url_for("static",filename="css/bootstrap.css") }} rel='stylesheet' type='text/css' />  
+<!-- //bootstrap-css -->
+<!-- css -->
+<link href={{url_for("static",filename="css/style.css") }}  rel='stylesheet' type='text/css' />
+<!-- //css -->
+<!-- fonts -->
+
+<!-- //fonts -->
+<!-- js -->
+<script src={{url_for("static",filename="js/jquery-1.11.1.min.js")}}></script>   
+<script src={{url_for("static",filename="js/modernizr.custom.js")}}></script>
+<script src={{url_for("static",filename="js/bootstrap.js")}}></script>
+<!-- //js -->	
+<!-- start-smoth-scrolling-->
+<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+		
+		$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+		});
+</script>
+<!--//end-smoth-scrolling-->
+</head>
+<body>
+	<!--baner-->
+	<div class="banner">
+		<!-- container -->
+		<div class="container">
+			<div class="banner-top">
+				<div class="social">
+					<ul>
+						<li><a href="http://www.twitter.com" class="facebook"> </a></li>    
+						<li><a href="http://www.facebook.com" class="facebook twitter"> </a></li>
+						<li><a href="http://www.gmail.com"class="facebook chrome"> </a></li> 
+					</ul>
+				</div>
+				<div class="header-top-right">
+					<form method="POST">
+						<font color=white> {{usera}} </font>
+						<button type="submit" name="logouts" value="logg_out" >Log out</button>
+					</form>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<!-- //container -->
+	</div>
+	<!--//baner-->
+	<div class="top-nav">
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="logo">
+						<h1><a href="{{ url_for('indexe') }}">Sommaire</a></h1>    
+					</div>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-center">
+						<li><a href="{{ url_for('indexe') }}" >Home</a></li>
+						<li><a href="{{ url_for('about') }}" >About</a></li>				
+						<li><a href="{{ url_for('indexe') }}">Avantages</a></li>	  						
+						<li><a href="{{ url_for('listing', user ='{{usera}}') }}">parcelles</a></li>	
+						<li><a href="{{ url_for('contact') }}" class="active">Contact</a></li>
+					</ul>	
+					<div class="clearfix"> </div>
+				</div>
+			</div>	
+		</nav>		
+	</div>	
+	<!-- script-for sticky-nav -->
+			<script>
+			$(document).ready(function() {
+				 var navoffeset=$(".top-nav").offset().top;
+				 $(window).scroll(function(){
+					var scrollpos=$(window).scrollTop(); 
+					if(scrollpos >=navoffeset){
+						$(".top-nav").addClass("fixed");
+					}else{
+						$(".top-nav").removeClass("fixed");
+					}
+				 });
+				 
+			});
+			</script>
+			<!-- /script-for sticky-nav -->
+	<!--navigation-->
+	<!-- contact -->
+	<div class="contact">
+		<div class="container">
+			<div class="contact-info">
+				<h2>Contact</h2>
+			</div>
+			<div class="contact-infom">
+				<h4> Information</h4>
+				<p>Au cas ou vous avez des questions et/ou remarques, veuillez nous remplir ce formulaire et l'envoyer. 
+				</p>
+			</div>
+			<div class="contact-grids">
+				<div class="col-md-7 contact-para">
+					<h5>Formulaire</h5>
+					<form>
+						<div class="grid-contact">
+							<div class="col-md-6 contact-grid">
+								<p>Nom de famille</p>		
+								<input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">						
+								</div>
+							<div class="col-md-6 contact-grid">
+								<p>Prenom</p>		
+								<input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">						
+								</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="grid-contact">
+							<div class="col-md-6 contact-grid">
+							<p>Email</p>						
+								<input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">							
+							</div>
+							<div class="col-md-6 contact-grid">						
+							<p>Telephone</p>						
+								<input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">							
+								</div>
+							<div class="clearfix"> </div>
+						</div>
+							<p class="your-para">Message</p>
+							<textarea cols="77" rows="6" value=" " onfocus="this.value='';" onblur="if (this.value == '') {this.value = '';}"></textarea>
+								<div class="send">
+									<input type="submit" value="Send">
+								</div>
+					</form>
+				</div>
+				<div class="col-md-5 contact-map">
+					<h5>Lieu</h5>
+					<div class="map">
+						<iframe src='https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d59247.84555941436!2d-74.00101359585908!3d40.691888370076846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1440747755360' allowfullscreen></iframe>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- //contact -->
+	<!-- footer -->
+	<div class="footer">
+		<!-- container -->
+		<div class="container">
+			<div class="footer-grids">
+				<div class="col-md-4 footer-grid">
+					<div class="footer-grid-info">
+						<h3>Addresse</h3>
+					</div>
+					<div class="footer-grid-list">
+						<h4>Quartier general</h4>
+						<p>3 rue du tronquet
+							Mont saint aignan, 76130
+							<span>Normandie, France</span>
+						</p>
+						<h4>Contact</h4>
+						<p>
+							Telephone  Loic: 07 67 07 04 51
+							<br>
+							Telephone  Marc: 06 75 73 65 96
+							<span>FAX : on en a pas encore</span>
+							E-mail Loic : loic.eyango@etu.unilasalle.fr
+							<br>
+							E-mail Marc: marc.langlois@etu.unilasalle.fr
+					</div>
+				</div>
+				<div class="col-md-4 footer-grid">
+					<div class="footer-grid-info">
+						<h3>Actualites</h3>
+					</div>
+					<div class="footer-grid-list">
+						<form>
+							<input type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+							<input type="submit" value="Subscribe">
+						</form>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<!-- container -->
+	</div>
+	<!-- //footer -->
+	<!-- copyright -->
+	<div class="copyright">
+		<!-- container -->
+		<div class="container">
+			<p>© 2020 Edition. tout droit reserve | Design by M & L Corporation </a></p>
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- //copyright -->
+</body>
+</html>

@@ -1,0 +1,281 @@
+<html>
+<head>
+<title>Projet cartographie</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Edible Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link href={{url_for("static",filename="css/bootstrap.css") }} rel='stylesheet' type='text/css' />      
+<!-- //bootstrap-css -->
+<!-- css -->
+<link href={{url_for("static",filename="css/style.css") }}  rel='stylesheet' type='text/css' />
+<!-- //css -->
+
+<!-- //fonts -->
+<!-- js -->
+<script src={{url_for("static",filename="js/jquery-1.11.1.min.js")}}></script>   
+<script src={{url_for("static",filename="js/modernizr.custom.js")}}></script>
+<script src={{url_for("static",filename="js/bootstrap.js")}}></script>
+<!-- //js -->	
+<!-- start-smoth-scrolling-->
+<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+		
+		$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+		});
+</script>
+<!--//end-smoth-scrolling-->
+</head>
+<body>
+	<!--baner-->
+	<div class="banner">
+		<!-- container -->
+		<div class="container">  
+			<div class="banner-top">  
+				<div class="social">
+					<ul>
+						<li><a href="http://www.twitter.com" class="facebook"> </a></li>    
+						<li><a href="http://www.facebook.com" class="facebook twitter"> </a></li>
+						<li><a href="http://www.gmail.com"class="facebook chrome"> </a></li> 					
+					</ul>
+				</div> 
+				<div class="header-top-right">
+					<form method="POST">
+						<font color=white> {{usera}} </font>
+						<button type="submit" name="logouts" value="logg_out" >Log out</button>
+					</form>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="banner-top-grid">
+				<script src={{url_for("static",filename="js/responsiveslides.min.js")}}></script>
+				<script>
+					// You can also use "$(window).load(function() {"
+					$(function () {
+					// Slideshow 4
+						$("#slider3").responsiveSlides({
+							auto: false,
+							pager: true,
+							nav: false,
+							speed: 500,
+							namespace: "callbacks",
+							before: function () {
+								$('.events').append("<li>before event fired.</li>");
+							},
+							after: function () {
+								$('.events').append("<li>after event fired.</li>");
+							}
+						 });				
+					});
+				</script>
+				<div  id="top" class="callbacks_container-wrap">
+					<ul class="rslides" id="slider3">
+						<li>
+							<div class="banner-info">
+								<h3>Poject <span>Cartographie</span> de la normandie</h3>
+								<h5>Surveillez vos parcelles de la maniere la plus facile</h5>
+								<p>Ce projet a ete elebore par 2 etudiants en Master of science Agriculture and food data management dans le cadre du Software ingineering</p>
+							</div>
+						</li>
+					</ul>
+				</div>	
+			</div>
+		</div>
+		<!-- //container -->
+	</div>
+	<!--//baner-->
+	<div class="top-nav">
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="logo">
+						<h1><a href="{{ url_for('indexe') }}">Sommaire</a></h1>     
+					</div>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-center">
+						<li><a href="{{ url_for('indexe') }}" class="active">Home</a></li>
+						<li><a href="{{ url_for('about') }}">About</a></li>
+						<li><a href="{{ url_for('indexe') }}" class="scroll">Avantages</a></li>
+						<li><a href="{{ url_for('listing', user ='{{usera}}' ) }}">parcelles</a></li>						
+						<li><a href="{{ url_for('contact') }}">Contact</a></li>
+					</ul>	
+					<div class="clearfix"> </div>
+				</div>
+			</div>	
+		</nav>		
+	</div>	
+	<!-- script-for sticky-nav -->
+			<script>
+			$(document).ready(function() {
+				 var navoffeset=$(".top-nav").offset().top;
+				 $(window).scroll(function(){
+					var scrollpos=$(window).scrollTop(); 
+					if(scrollpos >=navoffeset){
+						$(".top-nav").addClass("fixed");
+					}else{
+						$(".top-nav").removeClass("fixed");
+					}
+				 });
+				 
+			});
+			</script>
+			<!-- /script-for sticky-nav -->
+	<!--navigation-->
+	<!-- banner-bottom -->
+	<div class="welcome">
+		<div class="welcome-left">
+			<h3>Bonjour et bienvenue !</h3>
+			<h4>Consultez vos champs à idstance</h4>
+			<p>Grace a ce site, vous allez pouvoir consulter l'ensemble de vos parcelle sur vos pc ainsi qu'une mutlitude d'autres parametres. 
+			Ce site a ete concu dans le but d'aider les agriculteurs/utilisateurs dans la gestion de leur parcelles.  
+			</p>
+		</div>
+		<div class="welcome-right">
+				
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+	<!-- offer -->
+	<div class="welcome offer">
+		<div class="welcome-left offer-left">
+			<h3>Ce qu'on vous offre</h3>
+			<p>Les services que nous vous offrons sont les suivants
+			</p>
+			<div class="offer-left-list">
+				<ul>
+					<li>Vision globale de vos parcelles</li>
+					<li>Historique du sol</li>
+					<li>Carte NDVI de la parcelle</li>
+				</ul>
+			</div>
+			<div class="offer-left-list">
+				<ul>
+					<li>Historique meteo</li>
+					<li>Prevision meteo</li>
+					<li>Carte normale de la parcelle</li>
+				</ul>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+		<div class="welcome-right offer-right">
+			
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+	<!-- //new -->
+	<!-- services -->
+	<div id="services" class="services">
+		<!-- container -->
+		<div class="container">
+			<div class="services-info">
+				<h3>Avantages</h3>
+				<a name= "advan"></a>
+			</div>
+			<div class="services-grids">
+				<div class="col-md-4 services-grid">
+					<div class="services-icon">
+						<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+					</div>
+					<h4>Simplicite</h4>
+					<p> simple, intuitif et rapide a utiliser meme pour les utilisateurs novice a la technologie
+					</p>
+				</div>
+				<div class="col-md-4 services-grid">
+					<div class="services-icon">
+						<span class="glyphicon glyphicon-asterisk glyphicon-check" aria-hidden="true"></span>
+					</div>
+					<h4>6 services dans un seul site</h4>
+					<p> les services sites plus haut tous regroupe dans un seul site</p>
+				</div>
+				<div class="col-md-4 services-grid">
+					<div class="services-icon">
+						<span class="glyphicon glyphicon-asterisk glyphicon-time" aria-hidden="true"></span>
+					</div>
+					<h4>mise a jour reccurrent</h4>
+					<p>toutes les donnees de  votre parcelle sont mises a jour tres regulierement</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<!-- //container -->
+	</div>
+	<!-- services -->
+	<!-- new-bottom -->
+	<div class="new-bottom">
+		<!-- container -->
+		<div class="container">
+			<div class="new-bottom-info">
+				<h2>gerez toutes vos parcelles de loin a vous seul</h2>
+			</div>
+		</div>
+		<!-- //container -->
+	</div>
+	<!-- //new-bottom -->
+	<!-- footer -->
+	<div class="footer">
+		<!-- container -->
+		<div class="container">
+			<div class="footer-grids">
+				<div class="col-md-4 footer-grid">
+					<div class="footer-grid-info">
+						<h3>Addresse</h3>
+					</div>
+					<div class="footer-grid-list">
+						<h4>Quartier general</h4>
+						<p>3 rue du tronquet
+							Mont saint aignan, 76130
+							<span>Normandie, France</span>
+						</p>
+						<h4>Contact</h4>
+						<p>
+							Telephone  Loic: 07 67 07 04 51
+							<br>
+							Telephone  Marc: 06 75 73 65 96
+							<span>FAX : on en a pas encore</span>
+							E-mail Loic : loic.eyango@etu.unilasalle.fr
+							<br>
+							E-mail Marc: marc.langlois@etu.unilasalle.fr
+						</p>
+					</div>
+				</div>
+				<div class="col-md-4 footer-grid">
+					<div class="footer-grid-info">
+						<h3>Actualites</h3>
+					</div>
+					<div class="footer-grid-list">
+						<form>
+							<input type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+							<input type="submit" value="actualites">
+						</form>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<!-- container -->
+	</div>
+	<!-- //footer -->
+	<!-- copyright -->
+	<div class="copyright">
+		<!-- container -->
+		<div class="container">
+			<p>© 2020 Edition. tout droit reserve | Design by M & L Corporation </a></p>
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- //copyright -->
+</body>
+</html>

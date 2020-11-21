@@ -1,0 +1,67 @@
+<html>
+	<head>
+	<link rel="stylesheet" href="{{url_for('static',filename='background_consult.css') }}"/>
+	</head>
+
+	<body>
+	<form method='POST'>
+		<div id="header">
+			<center>Donnees parcelle : {{code_poly}}</center>
+			<button type="submit" name="back_button" value="retour_liste"> Retour aux parcelles </button>		
+		</div>
+		<div id="menu">
+				<center>Menu</center><br/>
+		</div>
+		<div id="corps">
+			<center>Carte NDVI de la parcelle au {{date_ndvi}} avec une couverture nuageuse de {{cl}}% :</center><br>
+			<center><img id="ndvi" src="{{url_for('static',filename='ndvi.png') }}" alt="" /></center>
+			<center>Photographie aerienne de la parcelle au {{date_true}} :</center><br>
+			<center><img id="truecolor" src="{{url_for('static',filename='truecolor.png') }}" alt="" /></center>
+			<center>
+				<table>
+					<caption> Informations parcelles:</caption>
+					<tr>
+						<td>Surface</td>
+						<td>{{area}}</td>
+					</tr>
+					<tr>
+						<td>Temperature sol surface</td>
+						<td>{{T0}}</td>
+					</tr>
+					<tr>
+						<td>Temperature sol 10cm</td>
+						<td>{{T10}}</td>
+					</tr>
+					<tr>
+						<td>Humidite sol</td>
+						<td>{{moist}}%</td>
+					</tr>
+				</table>
+				<table>
+					<caption> Prevision meteo pour les 5 prochains jours </caption>
+					<thead>
+						<tr>
+							<td>Date</td>
+							<td>Heure</td>
+							<td>Meteo</td>
+							<td>Temperature (C)</td>
+							<td>Humidite (%)</td>
+							<td>Vent (m/s)</td>
+						</tr>
+					</thead>
+					{% for m in meteo %}
+						<tr>
+							<td>{{m[0]}}</td>
+							<td>{{m[1]}}</td>
+							<td>{{m[2]}}</td>
+							<td>{{m[3]}}</td>
+							<td>{{m[4]}}</td>
+							<td>{{m[5]}}</td>
+						</tr>
+					{% endfor %}
+				</table>
+			</center>
+		</div>
+	</form>
+	</body>
+</html>

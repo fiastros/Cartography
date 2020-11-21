@@ -1,0 +1,75 @@
+#header{
+  float:top;
+  height:80px;
+  font-size:30px;
+  background:linear-gradient(green,white);
+  padding-top:1em;
+  padding-left:100px;
+  overflow: hidden;
+  border-bottom-color:black;
+  border-bottom:3px solid;
+}
+
+button[name="back_button"]{
+  float:right;
+  margin-right:20px;
+  margin-top: -2em;
+}
+
+#menu{
+  float:left;
+  width:200px;
+  height:800px;
+  background-color:gray;
+  border-right-color:black;
+  border-right:3px solid; 
+  padding-top:20px;
+}
+
+#corps{
+  float:top;
+  margin-left:250px;
+  background-color:white;
+  font-family:Comic sans MS;
+  padding-top: 20px;
+}
+
+table {
+  table-layout: fixed;
+  width: 80%;
+  margin-left: 90px;
+  margin-right:90px;
+  border-collapse: collapse;
+  border: 3px solid black;
+  margin-bottom: 100px;
+  margin-top: 10px;
+}
+
+caption {
+  font-family: 'Rock Salt', cursive;
+
+  font-style: italic;
+  caption-side: top;
+  color: #666;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+td{
+  border: 1px solid #000;
+  padding:5px;
+}
+
+#ndvi{
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+#truecolor
+{
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
